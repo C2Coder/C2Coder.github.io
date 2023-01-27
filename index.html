@@ -1,37 +1,11 @@
-Save the following as tps_reports.html and put it in the same directory as your company's homepage
- 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <script type="text/javascript">
-    function terrorize()
-    {
-      window.open("tps_reports.html");
-      window.open("tps_reports.html");
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
- 
-<body onunload="terrorize();" style="margin: 0;">
-<iframe src ="http://www.youtube.com/watch?v=oHg5SJYRHA0" width="100%" height="100%" frameborder="0">
-</iframe>
+<p>test<p>
 </body>
 </html>
- 
- 
-Next, add the following somewhere between the <head> tags in your company's homepage.
- 
-<script type="text/javascript">
-  function rickroll()
-  {
-    var links = document.getElementsByTagName("a");
-    for (var i in links) {
-      links[i].href = "tps_reports.html";
-    }
-  }
-</script>
- 
- 
-Finally, add the following to the <body> tag in your company's homepage.
- 
-onload="rickroll();"
