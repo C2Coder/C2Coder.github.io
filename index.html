@@ -6,21 +6,15 @@
     <title>C2Coder - Developer Portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'dark-bg': '#0a0a0a',
-                        'dark-surface': '#1a1a1a',
-                        'dark-border': '#333333',
-                        'accent': '#3b82f6',
-                        'accent-hover': '#2563eb'
-                    }
-                }
-            }
+    <style type="text/tailwindcss">
+        @theme {
+            --color-dark-bg: #0a0a0a;
+            --color-dark-surface: #1a1a1a;
+            --color-dark-border: #333333;
+            --color-accent: #3b82f6;
+            --color-accent-hover: #2563eb;
         }
-    </script>
+    </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
