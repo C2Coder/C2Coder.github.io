@@ -1,173 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C2Coder - Developer Portfolio</title>
+    <title>C2Coder portflio</title>
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
-    <style type="text/tailwindcss">
-        @theme {
-            --color-dark-bg: #0a0a0a;
-            --color-dark-surface: #1a1a1a;
-            --color-dark-border: #333333;
-            --color-accent: #3b82f6;
-            --color-accent-hover: #2563eb;
-        }
-    </style>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        
-        .glow-effect {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
         }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+        .font-sans {
+            font-family: 'Inter', sans-serif;
         }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
         }
-        
-        .tech-card {
+
+        .card-hover {
             transition: all 0.3s ease;
         }
-        
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+
+        .glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
-        
-        .typing-animation {
-            border-right: 2px solid #3b82f6;
-            animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+
+        .tech-badge {
+            background: linear-gradient(45deg, #1e40af, #3b82f6);
+            animation: pulse 2s infinite;
         }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
-        
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: #3b82f6 }
-        }
-        
+
         .floating {
-            animation: float 6s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite;
         }
-        
+
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
-<body class="bg-dark-bg text-white min-h-screen">
+
+<body class="bg-gray-900 text-gray-100 font-sans">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-dark-surface/95 backdrop-blur-md border-b border-dark-border z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="text-xl font-bold gradient-text">Portfolio</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-accent transition-colors">Home</a>
-                    <a href="#about" class="hover:text-accent transition-colors">About</a>
-                    <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
-                    <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
-                    <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+    <nav class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-md border-b border-gray-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-xl font-bold text-blue-400 font-mono">&lt;C2Coder/&gt;</div>
                 </div>
-                <button class="md:hidden text-white" onclick="toggleMenu()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a>
+                        <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
+                        <a href="#skills" class="text-gray-300 hover:text-blue-400 transition-colors">Skills</a>
+                        <a href="#setup" class="text-gray-300 hover:text-blue-400 transition-colors">Setup</a>
+                        <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-300 hover:text-blue-400">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg"></div>
-        <div class="relative z-10 text-center px-4">
-            <div class="floating mb-8">
-                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-accent to-purple-500 p-1">
-                    <div class="w-full h-full rounded-full bg-dark-surface flex items-center justify-center">
-                        <svg class="w-16 h-16 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
+    <section id="home" class="gradient-bg min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="floating">
+                <div
+                    class="w-32 h-32 mx-auto mb-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-4xl font-bold">
+                    &lt; / &gt;
                 </div>
             </div>
             <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                <span class="gradient-text">Hi, I'm</span>
+                <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Developer
+                </span>
                 <br>
-                <span class="text-white">Your Name</span>
+                <span class="text-gray-100">& Maker</span>
             </h1>
-            <div class="text-xl md:text-2xl text-gray-300 mb-8 h-8 overflow-hidden">
-                <div class="typing-animation whitespace-nowrap">Full Stack Developer</div>
-            </div>
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-                Passionate developer specializing in Python, TypeScript, and C#. I build scalable applications and love working with Linux systems.
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                I am student from Czech republic that likes to make stuff as cheap as possible. I am a mix of
+                everything,
+                from electronics to web development.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-accent hover:bg-accent-hover text-white px-8 py-3 rounded-lg font-medium transition-colors glow-effect">
-                    View My Work
-                </button>
-                <button class="border border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 rounded-lg font-medium transition-colors">
-                    Download CV
-                </button>
+            <div class="space-x-4">
+                <a href="#projects"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors glow">
+                    View Projects
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-dark-surface">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold gradient-text mb-4">About Me</h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    I'm a passionate developer who loves creating efficient, scalable solutions
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-6 text-accent">My Journey</h3>
-                    <p class="text-gray-300 mb-6">
-                        I'm a dedicated developer with expertise in Python, TypeScript, and C#. My passion lies in building robust applications and working with cutting-edge technologies.
-                    </p>
-                    <p class="text-gray-300 mb-6">
-                        I daily drive EndeavourOS for development and manage Ubuntu servers, giving me deep experience with Linux systems and server administration.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <span class="bg-dark-bg px-3 py-1 rounded-full text-sm border border-dark-border">🐍 Python Expert</span>
-                        <span class="bg-dark-bg px-3 py-1 rounded-full text-sm border border-dark-border">📜 TypeScript</span>
-                        <span class="bg-dark-bg px-3 py-1 rounded-full text-sm border border-dark-border">🏢 C# Developer</span>
-                        <span class="bg-dark-bg px-3 py-1 rounded-full text-sm border border-dark-border">🐧 Linux Enthusiast</span>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Featured Projects
+                </span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+                    <div class="h-6 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">PicoPU <span class="text-base font-normal">- currently
+                                WIP</span></h3>
+                        <p class="text-gray-400 mb-4">A rp2350 based GPU that will <span class="italic"> probably
+                            </span> run doom. I`ve made the boards, and soldered it all. My friend <a
+                                class="text-gray-300 font-semibold" href="https://github.com/caszuu">Caszuu</a> made all
+                            of the software.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">Raspberry PI</span>
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">RP2350</span>
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">PCB</span>
+                        </div>
+                        <a href="https://github.com/caszuu/PicoPU" target="_blank"
+                            class="text-blue-400 hover:text-blue-300 font-medium">View Project →</a>
                     </div>
                 </div>
-                <div class="fade-in">
-                    <div class="bg-dark-bg p-8 rounded-lg border border-dark-border">
-                        <h4 class="text-xl font-semibold mb-4 text-accent">Quick Facts</h4>
-                        <ul class="space-y-3 text-gray-300">
-                            <li class="flex items-center"><span class="text-accent mr-2">▶</span> Daily OS: EndeavourOS</li>
-                            <li class="flex items-center"><span class="text-accent mr-2">▶</span> Server OS: Ubuntu</li>
-                            <li class="flex items-center"><span class="text-accent mr-2">▶</span> Primary Languages: Python, TypeScript</li>
-                            <li class="flex items-center"><span class="text-accent mr-2">▶</span> Also Know: C#, Linux Administration</li>
-                            <li class="flex items-center"><span class="text-accent mr-2">▶</span> Focus: Full Stack Development</li>
-                        </ul>
+
+                <!-- Project Card 2 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+                    <div class="h-6 bg-gradient-to-br from-teal-500 to-purple-600 flex items-center justify-center">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Custom 2D plotter</h3>
+                        <p class="text-gray-400 mb-4">Self-designed and built CoreXY 2D plotter with a self designed
+                            board based on ESP32-S3
+                            and custom firmware.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">CAD</span>
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">Marlin</span>
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">3D Design</span>
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">ESP32</span>
+                        </div>
+                        <!--<button class="text-blue-400 hover:text-blue-300 font-medium">View Project →</button>-->
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+                    <div class="h-6 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Local camp pages</h3>
+                        <p class="text-gray-400 mb-4">Local hosting of instructions for our <a class="text-gray-300"
+                                href="https://robotickytabor.cz/">RoboCamp</a>. Its a easy to use python script that
+                            deploys local versions of the websites, prepares nginx config and ssl certificates from
+                            wedos for local dns.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">Python</span>
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">Nginx</span>
+                            <span class="tech-badge text-xs px-3 py-1 rounded-full text-white">Wedos</span>
+                        </div>
+                        <a href="https://github.com/C2Coder/RoboCamp-LocalPages" target="_blank"
+                            class="text-blue-400 hover:text-blue-300 font-medium">View Project →</a>
                     </div>
                 </div>
             </div>
@@ -175,328 +202,196 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-dark-bg">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold gradient-text mb-4">Technical Skills</h2>
-                <p class="text-gray-400 text-lg">Technologies I work with daily</p>
-            </div>
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Technical Skills
+                </span>
+            </h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="tech-card bg-dark-surface p-6 rounded-lg border border-dark-border fade-in">
-                    <div class="text-4xl mb-4">🐍</div>
-                    <h3 class="text-xl font-semibold mb-3 text-accent">Python</h3>
-                    <p class="text-gray-300 mb-4">My primary language for backend development, automation, and data processing.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Django</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">FastAPI</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Flask</span>
-                    </div>
+                <!-- Development -->
+                <div class="bg-gray-900 p-6 rounded-xl">
+                    <div class="text-3xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-4">Development</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>• Python/C++</li>
+                        <li>• JavaScript/TypeScript</li>
+                        <li>• <a class="text-gray-300" href="https://endeavouros.com/">EndeavourOS</a> / Ubuntu</li>
+                        <li>• <a class="text-gray-300" href="https://nginx.org/">Nginx</a></li>
+                    </ul>
                 </div>
-                <div class="tech-card bg-dark-surface p-6 rounded-lg border border-dark-border fade-in">
-                    <div class="text-4xl mb-4">📜</div>
-                    <h3 class="text-xl font-semibold mb-3 text-accent">TypeScript</h3>
-                    <p class="text-gray-300 mb-4">For building robust frontend applications and Node.js backends.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">React</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Node.js</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Next.js</span>
-                    </div>
+
+                <!-- Electronics -->
+                <div class="bg-gray-900 p-6 rounded-xl">
+                    <div class="text-3xl mb-4">🔌</div>
+                    <h3 class="text-xl font-semibold mb-4">Electronics</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>• Arduino/ESP32</li>
+                        <li>• PCB Design</li>
+                        <li>• Soldering</li>
+                        <li>• IoT Development</li>
+                    </ul>
                 </div>
-                <div class="tech-card bg-dark-surface p-6 rounded-lg border border-dark-border fade-in">
-                    <div class="text-4xl mb-4">🏢</div>
-                    <h3 class="text-xl font-semibold mb-3 text-accent">C#</h3>
-                    <p class="text-gray-300 mb-4">Experience with .NET ecosystem for enterprise applications.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">.NET Core</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">ASP.NET</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Entity Framework</span>
-                    </div>
-                </div>
-                <div class="tech-card bg-dark-surface p-6 rounded-lg border border-dark-border fade-in">
-                    <div class="text-4xl mb-4">🐧</div>
-                    <h3 class="text-xl font-semibold mb-3 text-accent">Linux Systems</h3>
-                    <p class="text-gray-300 mb-4">Daily user of EndeavourOS and Ubuntu server administrator.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">EndeavourOS</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Ubuntu Server</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Docker</span>
-                    </div>
-                </div>
-                <div class="tech-card bg-dark-surface p-6 rounded-lg border border-dark-border fade-in">
-                    <div class="text-4xl mb-4">💾</div>
-                    <h3 class="text-xl font-semibold mb-3 text-accent">Databases</h3>
-                    <p class="text-gray-300 mb-4">Working with both SQL and NoSQL databases for different use cases.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">PostgreSQL</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">MongoDB</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Redis</span>
-                    </div>
-                </div>
-                <div class="tech-card bg-dark-surface p-6 rounded-lg border border-dark-border fade-in">
-                    <div class="text-4xl mb-4">🔧</div>
-                    <h3 class="text-xl font-semibold mb-3 text-accent">DevOps & Tools</h3>
-                    <p class="text-gray-300 mb-4">Deployment, monitoring, and development tools I use regularly.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Git</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Docker</span>
-                        <span class="bg-dark-bg px-2 py-1 rounded text-sm">Nginx</span>
-                    </div>
+
+                <!-- 3D & Design -->
+                <div class="bg-gray-900 p-6 rounded-xl">
+                    <div class="text-3xl mb-4">📐</div>
+                    <h3 class="text-xl font-semibold mb-4">3D printing</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>• CAD - <a class="text-gray-300" href="https://onshape.com/">Onshaúe</a></li>
+                        <li>• 3D Printing</li>
+                        <li>• Prototyping</li>
+                        <li>• <a class="text-gray-300" href="https://prusa3d.com/">Prusa</a> enthusiast</li>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-dark-surface">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold gradient-text mb-4">Featured Projects</h2>
-                <p class="text-gray-400 text-lg">Some of my recent work</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-dark-bg rounded-lg border border-dark-border overflow-hidden tech-card fade-in">
-                    <div class="h-48 bg-gradient-to-br from-accent to-purple-500 p-8 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-3 text-accent">Python API Service</h3>
-                        <p class="text-gray-300 mb-4">A scalable REST API built with FastAPI and PostgreSQL, deployed on Ubuntu servers.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">Python</span>
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">FastAPI</span>
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">PostgreSQL</span>
-                        </div>
-                        <div class="flex gap-3">
-                            <button class="text-accent hover:text-accent-hover">View Code</button>
-                            <button class="text-accent hover:text-accent-hover">Live Demo</button>
-                        </div>
-                    </div>
+
+    <!-- Setup Section -->
+    <section id="setup" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    My setup
+                </span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Daily setup -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="text-3xl mb-4">💻</div>
+                    <h3 class="text-xl font-semibold mb-4">Daily setup</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>• Old ntb from work (8th gen intel - 4c8t, 16GB)</li>
+                        <li>• 27" curved monitor (the backlight sometimes shuts off)</li>
+                        <li>• <a class="text-gray-300" href="https://endeavouros.com/">EndeavourOS</a> - "i use arch
+                            btw"</li>
+                        <li>• Ntb keyboard + trackpad</li>
+                    </ul>
                 </div>
-                <div class="bg-dark-bg rounded-lg border border-dark-border overflow-hidden tech-card fade-in">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-blue-500 p-8 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-3 text-accent">TypeScript Dashboard</h3>
-                        <p class="text-gray-300 mb-4">A modern React dashboard with real-time data visualization and responsive design.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">TypeScript</span>
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">React</span>
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">Tailwind</span>
-                        </div>
-                        <div class="flex gap-3">
-                            <button class="text-accent hover:text-accent-hover">View Code</button>
-                            <button class="text-accent hover:text-accent-hover">Live Demo</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-dark-bg rounded-lg border border-dark-border overflow-hidden tech-card fade-in">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 p-8 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-3 text-accent">Server Monitoring Tool</h3>
-                        <p class="text-gray-300 mb-4">A Linux system monitoring application built for EndeavourOS and Ubuntu servers.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">Python</span>
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">Linux</span>
-                            <span class="bg-dark-surface px-2 py-1 rounded text-sm border border-dark-border">Docker</span>
-                        </div>
-                        <div class="flex gap-3">
-                            <button class="text-accent hover:text-accent-hover">View Code</button>
-                            <button class="text-accent hover:text-accent-hover">Live Demo</button>
-                        </div>
-                    </div>
+
+                <!-- Server setup -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="text-3xl mb-4">🖥️</div>
+                    <h3 class="text-xl font-semibold mb-4">Server setup</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>• Oracle Free tier VPS (1c2t, 1GB)</li>
+                        <li>• Ubuntu 24.04</li>
+                        <li>• Nginx</li>
+                        <li>• <a class="text-gray-300" href="https://github.com/fatedier/frp">Frp</a> - perfect for
+                            testing </li>
+                        <li>• <a class="text-gray-300" href="https://syncthing.net">Syncthing</a> - never loose any
+                            files</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-dark-bg">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold gradient-text mb-4">Get In Touch</h2>
-                <p class="text-gray-400 text-lg">Let's discuss your next project</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-6 text-accent">Let's Connect</h3>
-                    <p class="text-gray-300 mb-8">
-                        I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to chat about technology, feel free to reach out.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                            <span class="text-gray-300">your.email@example.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            <span class="text-gray-300">github.com/yourusername</span>
-                        </div>
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                            <span class="text-gray-300">linkedin.com/in/yourusername</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="fade-in">
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Name</label>
-                            <input type="text" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 focus:outline-none focus:border-accent transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Email</label>
-                            <input type="email" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 focus:outline-none focus:border-accent transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2">Message</label>
-                            <textarea rows="4" class="w-full bg-dark-surface border border-dark-border rounded-lg px-4 py-3 focus:outline-none focus:border-accent transition-colors"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-accent hover:bg-accent-hover text-white py-3 rounded-lg font-medium transition-colors glow-effect">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-8">
+                <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Get In Touch
+                </span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-12">
+                Ready to collaborate on your next project? Let's build something amazing together.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:me@c2coder.eu"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors glow flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                    me@c2coder.eu
+                </a>
+                <a href="https://github.com/C2Coder" target="_blank"
+                    class="border border-gray-600 text-gray-300 hover:text-white hover:border-gray-500 px-8 py-3 rounded-lg font-semibold transition-colors flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    C2Coder
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-surface border-t border-dark-border py-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center text-gray-400">
-                <p>&copy; 2025 Your Name. Built with passion and powered by EndeavourOS.</p>
+    <footer class="bg-gray-800 border-t border-gray-900 bg-gray-900 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-center items-center mb-4">
+                <p class="italic text-gray-400 font-mono mb-4 md:mb-0">"The best machine is the one you have"</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-400 font-mono mb-4 md:mb-0">
+                    &copy; 2025 C2Coder. Built with ❤️ and code.
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="https://c2coder.eu" target="_blank"
+                        class="text-gray-400 hover:text-blue-400 transition-colors">c2coder.eu</a>
+                    <a href="mailto:me@c2coder.eu"
+                        class="text-gray-400 hover:text-blue-400 transition-colors">me@c2coder.eu</a>
+                    <a href="https://github.com/C2Coder" target="_blank"
+                        class="text-gray-400 hover:text-blue-400 transition-colors">C2Coder</a>
+                </div>
+
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Fade in animation on scroll
-        function fadeInOnScroll() {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
-        }
-
-        window.addEventListener('scroll', fadeInOnScroll);
-        
-        // Initial check
-        fadeInOnScroll();
+        });
 
         // Mobile menu toggle
-        function toggleMenu() {
-            // Mobile menu implementation would go here
-            console.log('Mobile menu toggled');
-        }
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'md:hidden bg-gray-900 border-t border-gray-800 hidden';
+        mobileMenu.innerHTML = `
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-300 hover:text-blue-400">Home</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-blue-400">Projects</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-blue-400">Skills</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-blue-400">Contact</a>
+            </div>
+        `;
 
-        // Typing animation
-        const texts = ['Full Stack Developer', 'Python Enthusiast', 'Linux User', 'Problem Solver'];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingElement = document.querySelector('.typing-animation');
+        document.querySelector('nav > div').appendChild(mobileMenu);
 
-        function typeText() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                typingElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar background opacity on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-gray-900');
+                navbar.classList.remove('bg-gray-900/90');
             } else {
-                typingElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
+                navbar.classList.add('bg-gray-900/90');
+                navbar.classList.remove('bg-gray-900');
             }
-            
-            let typeSpeed = 100;
-            
-            if (isDeleting) {
-                typeSpeed /= 2;
-            }
-            
-            if (!isDeleting && charIndex === currentText.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-            }
-            
-            setTimeout(typeText, typeSpeed);
-        }
-
-        // Start typing animation
-        typeText();
-
-        // Add some interactive hover effects
-        document.querySelectorAll('.tech-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
-        });
-
-        // Add scroll-based navigation highlighting
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('text-accent');
-                if (link.getAttribute('href') === '#' + currentSection) {
-                    link.classList.add('text-accent');
-                }
-            });
         });
     </script>
 </body>
+
 </html>
