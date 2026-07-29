@@ -1,0 +1,56 @@
+{
+  "shared": {
+    "contact": {
+      "email": "me@c2coder.eu",
+      "github": "https://github.com/C2Coder",
+      "website": "https://c2coder.eu"
+    },
+    "footer": {
+      "quote": "The best machine is the one you have"
+    }
+  },
+  "site": {
+    "title": "C2Coder",
+    "tagline": "Student, maker, photographer.",
+    "nav": [
+      { "label": "Home", "href": "#home" },
+      { "label": "Projects", "href": "#projects" },
+      { "label": "Skills", "href": "#skills" },
+      { "label": "How I work", "href": "#setup" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "hero": {
+      "eyebrow": "Practical. Hands-on. Personal.",
+      "headline": "I build the things that make sense to me and use them hard.",
+      "body": [
+        "I am a student from the Czech Republic and most of my time goes into electronics, code, and a camera. I like understanding what I build and staying in control from the first sketch to the final deploy.",
+        "I like building my own version of things, even if it turns out worse than what I could just buy, because that is where the real learning happens. Taking a project from a sketch to something that actually works teaches me more than reading how someone else did it.",
+        "When I am not working on hardware, I am building small web tools, managing personal hosting, shooting events, or polishing content so it stays clear and maintainable."
+      ],
+      "highlights": [
+        { "title": "Electronics", "text": "PCB design, soldering, Raspberry Pi and ESP32 builds, and custom prototypes." },
+        { "title": "Software", "text": "Python, JavaScript, automation, and small tools for personal use." },
+        { "title": "Photography", "text": "Capturing events, people, and projects in a way that stays easy to revisit." }
+      ],
+      "primary": { "label": "Projects", "href": "#projects" },
+      "secondary": { "label": "Photography", "href": "https://photo.c2coder.eu" }
+    },
+    "sections": {
+      "projects": {
+        "title": "Selected projects",
+        "intro": "I like the projects where hardware and software meet. These are the things that best represent my work."
+      },
+      "skills": {
+        "title": "What I do well",
+        "intro": "It is not just about the tools, but about connecting them into something that works in practice."
+      },
+      "setup": {
+        "title": "How I work",
+        "intro": "I prefer simple, affordable, and repairable gear. I keep unnecessary things out of the way."
+      }
+    },
+    "contactHeading": "Get in touch",
+    "contactLead": "If you are building something similar, need hardware help, or just want to swap ideas, send me a message.",
+    "contactNote": "Email is fastest, GitHub is for public projects, and photography lives on the separate site."
+  }
+}

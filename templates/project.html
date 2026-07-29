@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ project.title }} - {{ site.title }}</title>
+<meta name="description" content="{{ detail.summary }}">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>
+  (function () {
+    var saved = localStorage.getItem("theme");
+    var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-row">
+      <a href="/#home" class="wordmark">{{ site.title }}<span class="wordmark-dot">.</span></a>
+      <nav class="masthead-nav">
+        {% for item in site.nav %}
+        <a href="{{ item.href if not item.href.startswith('#') else '/' + item.href }}"><span class="nav-index">{{ "%02d"|format(loop.index) }}</span>{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+      <div class="masthead-controls">
+        <button class="ctrl-btn" id="themeToggle" type="button" aria-label="Toggle theme">DARK</button>
+        <button class="ctrl-btn menu-btn" id="menuToggle" type="button" aria-label="Toggle menu">MENU</button>
+      </div>
+    </div>
+    <div class="masthead-meta">{{ site.tagline }}</div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay-top">
+      <span class="wordmark">{{ site.title }}<span class="wordmark-dot">.</span></span>
+      <button class="ctrl-btn" id="menuClose" type="button" aria-label="Close menu">CLOSE</button>
+    </div>
+    {% for item in site.nav %}
+    <a href="{{ item.href if not item.href.startswith('#') else '/' + item.href }}"><span class="nav-index">{{ "%02d"|format(loop.index) }}</span>{{ item.label }}</a>
+    {% endfor %}
+  </div>
+
+  <main>
+    <section id="project">
+      <div class="wrap">
+        <a href="/#projects" class="back-link">← back to projects</a>
+        <div class="project-head">
+          <span class="section-tag">Build log</span>
+          <div class="project-head-row">
+            <h1>{{ project.title }}</h1>
+            {% if project.status == "wip" %}<span class="status-badge is-wip">WIP</span>{% endif %}
+          </div>
+          <p class="project-summary">{{ detail.summary }}</p>
+          <div class="tag-row" style="margin-top: 18px;">
+            {% for tag in project.tags %}
+            <span class="chip">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <div>
+            {% for section in detail.sections %}
+            <article class="prose-section">
+              <h2>{{ section.heading }}</h2>
+              <p>{{ section.body }}</p>
+            </article>
+            {% endfor %}
+          </div>
+
+          <div>
+            {% if detail.specs %}
+            <aside class="spec-box">
+              <p class="spec-box-label">Spec</p>
+              {% for row in detail.specs %}
+              <div class="spec-row">
+                <span class="spec-key">{{ row.key }}</span>
+                <span class="spec-val">{{ row.value }}</span>
+              </div>
+              {% endfor %}
+            </aside>
+            {% endif %}
+
+            <aside class="spec-box" style="margin-top: 20px;">
+              <p class="file-list-label">Files</p>
+              {% if project.files %}
+              {% for file in project.files %}
+              <div class="file-row">
+                <span class="file-name">{{ file.name }}</span>
+                <a href="{{ file.href }}" class="file-download" download>download →</a>
+              </div>
+              {% endfor %}
+              {% else %}
+              <p class="file-empty">Not published yet - check back later.</p>
+              {% endif %}
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap colophon-row">
+      <p class="quote">"{{ site.shared.footer.quote }}"</p>
+      <p class="meta">© <span id="year"></span> {{ site.title }}</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function currentTheme() { return document.documentElement.getAttribute("data-theme"); }
+    function paintThemeButton() {
+      document.getElementById("themeToggle").textContent = currentTheme() === "dark" ? "LIGHT" : "DARK";
+    }
+    paintThemeButton();
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      paintThemeButton();
+    });
+
+    var overlay = document.getElementById("navOverlay");
+    document.getElementById("menuToggle").addEventListener("click", function () { overlay.classList.add("open"); });
+    document.getElementById("menuClose").addEventListener("click", function () { overlay.classList.remove("open"); });
+    overlay.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () { overlay.classList.remove("open"); });
+    });
+  </script>
+</body>
+</html>

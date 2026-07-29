@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "title": "PicoPU",
+      "description": "An RP2350-based GPU project with custom boards and software by my friend Caszuu.",
+      "tags": ["RP2350", "PCB", "Raspberry Pi"],
+      "link": "https://github.com/caszuu/PicoPU"
+    },
+    {
+      "title": "Local camp pages",
+      "description": "A Python tool for deploying local camp sites with nginx config and SSL setup.",
+      "tags": ["Python", "Nginx", "Automation"],
+      "link": "https://github.com/C2Coder/RoboCamp-LocalPages"
+    },
+    {
+      "title": "DIY photography light",
+      "slug": "diy-photography-light",
+      "status": "wip",
+      "description": "A DIY white / RGB photography light. Building it myself came out cheaper than buying a comparable panel light.",
+      "tags": ["LED", "Photography", "Electronics", "3D Print"],
+      "detail": {
+        "summary": "A white and RGB photography light I built instead of buying a finished panel - mostly because doing it myself came out noticeably cheaper.",
+        "sections": [
+          {
+            "heading": "Why build it",
+            "body": "A finished panel light with comparable output and color rendering cost significantly more than what I put together myself from LED strips, aluminum profile, and my own driver."
+          },
+          {
+            "heading": "Status",
+            "body": "It is in regular use for shoots. Build files (wiring diagram, parts list, 3D-printable parts) are being added below as I document them."
+          }
+        ],
+        "specs": [
+          { "key": "Type", "value": "White + RGB LED panel" },
+          { "key": "Control", "value": "Custom brightness / color driver" },
+          { "key": "Body", "value": "3D printed + aluminum profile" }
+        ]
+      },
+      "files": []
+    },
+    {
+      "title": "Portable power supply",
+      "slug": "portable-power-supply",
+      "status": "wip",
+      "description": "A high-capacity power bank / portable power supply. Currently a work in progress.",
+      "tags": ["Power electronics", "18650", "WIP"],
+      "detail": {
+        "summary": "A portable, high-capacity power source for field use and hardware projects away from a wall outlet. Currently being built - this page will grow alongside it.",
+        "sections": [
+          {
+            "heading": "Goal",
+            "body": "Build my own high-capacity power bank / portable supply that can actually run demanding hardware projects, not just top up a phone."
+          },
+          {
+            "heading": "Status",
+            "body": "Work in progress. Wiring diagram, parts list, and build photos will be added as the project moves forward."
+          }
+        ],
+        "specs": [
+          { "key": "Status", "value": "In progress" },
+          { "key": "Cells", "value": "18650" }
+        ]
+      },
+      "files": []
+    }
+  ]
+}

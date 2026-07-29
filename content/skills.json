@@ -1,0 +1,16 @@
+{
+  "skills": [
+    {
+      "title": "Development",
+      "items": ["Python", "C++", "JavaScript", "Linux", "Networking"]
+    },
+    {
+      "title": "Electronics",
+      "items": ["Raspberry Pi / ESP32", "PCB design", "Soldering", "IoT development"]
+    },
+    {
+      "title": "3D printing",
+      "items": ["Onshape", "3D printing", "Prototyping", "Prusa"]
+    }
+  ]
+}
