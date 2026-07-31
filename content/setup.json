@@ -2,17 +2,18 @@
   "setup": [
     {
       "title": "Daily setup",
-      "icon": "💻",
-      "items": ["EndeavourOS (Arch) laptop", "Keychron K10"]
+      "items": ["EndeavourOS laptop", "Keychron K10"]
+    },
+    {
+      "title": "Home mini-server",
+      "items": ["Intel NUC", "Ubuntu Server", "Syncthing", "Home Assistant"]
     },
     {
       "title": "Home server",
-      "icon": "🖥️",
-      "items": ["Intel NUC", "Ubuntu Server", "Syncthing", "Services for the home network"]
+      "items": ["Intel 5 245k", "Proxmox", "NAS", "Editing machine"]
     },
     {
       "title": "Public VPS",
-      "icon": "☁️",
       "items": ["Hetzner VPS", "Ubuntu Server", "Nginx", "Frp"]
     }
   ]

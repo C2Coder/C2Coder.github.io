@@ -229,6 +229,8 @@ h1 { font-size: clamp(2.3rem, 4.6vw, 3.6rem); line-height: 1.08; margin-top: 14p
 .colophon-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
 .colophon .quote { font-family: var(--mono); font-size: .86rem; color: var(--ink-soft); }
 .colophon .meta { font-family: var(--mono); font-size: .78rem; color: var(--ink-faint); }
+.colophon .meta a { border-bottom: 1px solid color-mix(in srgb, var(--ink-faint) 45%, transparent); }
+.colophon .meta a:hover { color: var(--accent); border-color: var(--accent); }
 
 @media (max-width: 900px) {
   .hero-grid, .project-grid { grid-template-columns: 1fr; }
