@@ -50,12 +50,16 @@ def build() -> None:
         slug = project.get("slug")
         if not slug:
             continue
+        detail = project.get("detail")
+        if detail is None:
+            print(f"warning: project '{slug}' has a slug but no detail block, skipping its page", file=sys.stderr)
+            continue
         page_dir = DIST / "projects" / slug
         page_dir.mkdir(parents=True, exist_ok=True)
         page_html = env.get_template("project.html").render(
             site=site,
             project=project,
-            detail=project["detail"],
+            detail=detail,
             project_href=project_href,
         )
         (page_dir / "index.html").write_text(page_html, encoding="utf-8")
