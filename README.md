@@ -1,11 +1,11 @@
 # c2coder.eu
 
-Source for [c2coder.eu](https://c2coder.eu) — my personal site: projects, skills,
+Source for [c2coder.eu](https://c2coder.eu) - my personal site: projects, skills,
 and the gear/setup I work with. A static site built by a small Python + Jinja2
 generator, deployed to GitHub Pages.
 
 The photography portfolio at [photo.c2coder.eu](https://photo.c2coder.eu) is a
-sibling site (`../photo.c2coder.eu` in this checkout) built the same way — see
+sibling site (`../photo.c2coder.eu` in this checkout) built the same way - see
 `DESIGN.md` for the shared visual language between the two.
 
 ## Layout
@@ -31,7 +31,7 @@ build.py         # renders content/*.json through templates/*.html into dist/
   projects just need `title`, `description`, `tags`, `link`. Projects with their
   own write-up need a `slug` **and** a `detail` object
   (`{ summary, sections: [{heading, body}], specs: [{key, value}] }`, optionally
-  `files: [{name, href}]`) — that's what generates `/projects/<slug>/`. A project
+  `files: [{name, href}]`) - that's what generates `/projects/<slug>/`. A project
   with a `slug` but no `detail` is skipped (with a warning) rather than breaking
   the build.
 - `skills.json` / `setup.json` are both `{ title, items: [...] }` groups rendered
